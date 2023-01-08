@@ -1,0 +1,95 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Login</title>
+</head>
+<style>
+body{
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+* {box-sizing: border-box}
+input[type=text], input[type=password] {
+   width: 100%;
+   font-size: 16px;
+    padding: 14px;
+   margin: 5px 0 4px 0;
+   display: inline-block;
+   border: none;
+   background: #f1f1f1;
+}
+label{
+   font-size: 15px;
+}
+input[type=text]:focus, input[type=password]:focus {
+   background-color: #ddd;
+   outline: dark;
+}
+hr {
+   border: 1px solid #f1f1f1;
+   margin-bottom: 25px;
+}
+.button {
+   font-size: 18px;
+   font-weight: bold;
+   background-color: rgb(10, 119, 13);
+   color: white;
+   padding: 13px 20px;
+   margin: 6px 0;
+   border: none;
+   cursor: pointer;
+   width: 100%;
+   opacity: 0.9;
+}
+.button:hover {
+   opacity:1;
+}
+.button1:hover {
+   opacity:1;
+}
+
+.formContainer {
+   padding-right:400px;
+    padding-left: 400px;
+    padding-top: 111px;
+}
+.button1 {
+   font-size: 18px;
+   font-weight: bold;
+   background-color: rgb(119, 10, 13);
+   color: white;
+    padding: 13px 20px;
+   margin: 6px 0;
+   border: none;
+   cursor: pointer;
+   width: 100%;
+   opacity: 0.9;
+}
+.msg{
+text-align:center
+}
+
+</style>
+<body>
+
+<form action="login" method="post">
+    {% csrf_token %}
+    <div class="formContainer">
+        <h2 style="color:white;text-align:center;background-color: Teal;padding:10px">Login</h2>
+        <label for=""><b>Username</b></label>
+
+    <input type="text" name="username" placeholder="Enter Your username"><br>
+        <label for=""><b>Password</b></label>
+    <input type="password" name="password" placeholder="Enter Your password"><br>
+    <input class="button" type="submit" value="Login"><br>
+        <a href="register"> <input class="button1" type="button" value="Register" ></a><br>
+</div>
+</form>
+{% for msg in messages %}
+<h2 class="msg">{{msg}}</h2>
+{% endfor %}
+</body>
+</html>
+
